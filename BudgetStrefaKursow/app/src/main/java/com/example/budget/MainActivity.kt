@@ -24,11 +24,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.myButton.setOnLongClickListener {
             Toast.makeText(applicationContext,
-                "Long click!",
+                binding.myEditText.text.toString(),
                 Toast.LENGTH_SHORT).show()
 
             true
         }
-
     }
 }
