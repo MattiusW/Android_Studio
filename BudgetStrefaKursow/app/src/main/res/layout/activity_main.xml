@@ -6,8 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/myEditText"
+    <TextView
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:id="@+id/myTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
