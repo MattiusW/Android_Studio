@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.net.toUri
 import com.example.budget.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -18,9 +19,11 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.myButton.setOnClickListener {
-            val intent = Intent(applicationContext, SecondActivity::class.java)
+//            val intent = Intent(applicationContext, SecondActivity::class.java)
+            val intent = Intent(Intent.ACTION_DIAL)
             val data = binding.myEditText.text.toString()
-            intent.putExtra("MY_DATA", data)
+            intent.data = "tel:$data".toUri()
+//            intent.putExtra("MY_DATA", data)
             startActivity(intent)
         }
 
