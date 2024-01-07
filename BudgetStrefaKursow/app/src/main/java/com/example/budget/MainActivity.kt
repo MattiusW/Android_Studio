@@ -1,5 +1,6 @@
 package com.example.budget
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -15,19 +16,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         binding.myButton.setOnClickListener {
-            Toast.makeText(
-                applicationContext, "You'r click a button!",
-                Toast.LENGTH_SHORT
-            ).show()
+            val intent = Intent(applicationContext, SecondActivity::class.java)
+            val data = binding.myEditText.text.toString()
+            intent.putExtra("MY_DATA", data)
+            startActivity(intent)
         }
 
-        binding.myButton.setOnLongClickListener {
-            Toast.makeText(applicationContext,
-                binding.myEditText.text.toString(),
-                Toast.LENGTH_SHORT).show()
 
-            true
-        }
     }
 }
