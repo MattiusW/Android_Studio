@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.fragment.app.commit
+import androidx.navigation.fragment.NavHostFragment
 import com.example.budget.databinding.ActivityMainBinding
 import com.example.budget.fragments.FirstFragment
 import com.example.budget.fragments.SecondFragment
@@ -21,13 +22,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val firstFragment = FirstFragment()
-        val secondFragment = SecondFragment()
+        val navHostFragment = supportFragmentManager.findFragmentById(binding.fragContainerFirst.id) as NavHostFragment
+        val navController = navHostFragment.navController
 
-        supportFragmentManager.commit {
-            add(R.id.fragContainerFirst, firstFragment)
-            add(R.id.fragContainerFirst, secondFragment)
-        }
+
+//        val firstFragment = FirstFragment()
+//        val secondFragment = SecondFragment()
+//
+//        supportFragmentManager.commit {
+//            add(R.id.fragContainerFirst, firstFragment)
+//            add(R.id.fragContainerFirst, secondFragment)
+//        }
 
 //        if(savedInstanceState != null){
 //            val mValue = savedInstanceState.getInt("VALUE")
