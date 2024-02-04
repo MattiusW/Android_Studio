@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyBudget"
 include(":app")
- 
