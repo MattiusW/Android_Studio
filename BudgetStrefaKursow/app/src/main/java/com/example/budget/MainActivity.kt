@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        CoroutineScope(Dispatchers.IO).launch {
-            dataStore.edit {
-                it[intKey] = 777
-            }
-        }
+//        CoroutineScope(Dispatchers.IO).launch {
+//            dataStore.edit {
+//                it[intKey] = 777
+//            }
+//        }
 
         CoroutineScope(Dispatchers.IO).launch {
             dataStore.edit {prefs ->
