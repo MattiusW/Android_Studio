@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.mw.mybudget.data.model.CategoryTotal
 import com.mw.mybudget.data.model.Transaction
 import kotlinx.coroutines.flow.Flow
 
@@ -30,5 +31,8 @@ interface TransactionDao {
     fun getAllOutcomes(): Flow<List<Transaction>>
 
     @Query("SELECT category, SUM(price) as total FROM transactions_table WHERE type = 'INCOME' GROUP BY category")
-    fun getSumOfIncomesGroupByCategory()
+    fun getSumOfIncomesGroupByCategory() : Flow<List<CategoryTotal>>
+
+    @Query("SELECT category, SUM(price) as total FROM transactions_table WHERE type = 'OUTCOME' GROUP BY category")
+    fun getSumOfOutcomesGroupByCategory() : Flow<List<CategoryTotal>>
 }
