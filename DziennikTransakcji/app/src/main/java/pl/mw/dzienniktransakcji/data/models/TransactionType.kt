@@ -1,4 +1,4 @@
-package com.mw.dzienniktransakcji.data.models
+package pl.mw.dzienniktransakcji.data.room
 
 enum class TransactionType {
     INCOME, OUTCOME

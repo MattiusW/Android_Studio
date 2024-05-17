@@ -1,4 +1,4 @@
-package com.mw.dzienniktransakcji.data.models
+package pl.mw.dzienniktransakcji.data.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
