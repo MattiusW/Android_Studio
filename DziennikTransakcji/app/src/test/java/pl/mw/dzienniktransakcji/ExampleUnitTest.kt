@@ -1,4 +1,4 @@
-package com.mw.dzienniktransakcji
+package pl.mw.dzienniktransakcji
 
 import org.junit.Test
 
