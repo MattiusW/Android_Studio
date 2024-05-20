@@ -28,15 +28,8 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
 
-        mainVm.insertTransaction(
-            Transaction(0,
-            1L,
-            15f,
-            "opis",
-            TransactionType.INCOME,
-                TransactionCategory.FOOD)
-        )
+        mainVm.insertTransaction(createTransaction())
     }
 
-    private fun createTransaction() = Transaction(0,1L, 15f, "Opis", TransactionType.INCOME, TransactionCategory.FOOD )
+    private fun createTransaction() = Transaction(0,1L, 10f, "Opis", TransactionType.INCOME, TransactionCategory.HOUSEHOLD)
 }

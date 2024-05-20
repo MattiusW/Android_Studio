@@ -9,10 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.highlight.Highlight
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import pl.mw.dzienniktransakcji.MainViewModel
 import pl.mw.dzienniktransakcji.R
 import pl.mw.dzienniktransakcji.databinding.FragmentIncomeBinding
@@ -44,6 +47,19 @@ class IncomeFragment : Fragment() {
             setCenterTextSize(24f)
             description.isEnabled = false
             setTransparentCircleAlpha(50)
+
+            setOnChartValueSelectedListener(object: OnChartValueSelectedListener{
+                override fun onValueSelected(e: Entry?, h: Highlight?) {
+                    binding.incomePieChart.centerText = e?.y.toString() + "PLN"
+                    binding.incomePieChart.invalidate()
+                }
+
+                override fun onNothingSelected() {
+                    binding.incomePieChart.centerText = "Przychody"
+                    binding.incomePieChart.invalidate()
+                }
+
+            })
         }
 
         mainVm.getSumOfIncomeByCategory().observe(viewLifecycleOwner){ transactions ->
