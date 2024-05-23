@@ -32,12 +32,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <RadioButton
+            android:id="@+id/incomeRb"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Income" />
 
         <RadioButton
+            android:id="@+id/outcomeRb"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
