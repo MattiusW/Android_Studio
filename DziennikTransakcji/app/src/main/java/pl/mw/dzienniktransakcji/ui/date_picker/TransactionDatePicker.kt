@@ -22,6 +22,6 @@ class TransactionDatePicker(private val onDateSetListener: (Int, Int, Int) -> Un
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        onDateSetListener(dayOfMonth, month+1, year)
+        onDateSetListener(dayOfMonth, month, year)
     }
 }

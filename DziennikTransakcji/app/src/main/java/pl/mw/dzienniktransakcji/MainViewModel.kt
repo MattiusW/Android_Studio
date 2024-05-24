@@ -13,6 +13,7 @@ import pl.mw.dzienniktransakcji.data.room.Transaction
 
 class MainViewModel(app: Application): AndroidViewModel(app) {
     var isBottomNavVisible = true
+    private var selectedTransaction: Transaction? = null
     private val repo = TransactionsRepository(app.applicationContext)
 
     fun insertTransaction(transaction: Transaction) =
@@ -35,4 +36,15 @@ class MainViewModel(app: Application): AndroidViewModel(app) {
     fun getAllOutcomes() = repo.getAllOutcomes().asLiveData(viewModelScope.coroutineContext)
     fun getSumOfIncomeByCategory() = repo.getSumOfIncomeByCategory().asLiveData(viewModelScope.coroutineContext)
     fun getSumOfOutcomeByCategory() = repo.getSumOfOutcomesByCategory().asLiveData(viewModelScope.coroutineContext)
+
+    fun selectTransaction(transaction: Transaction) {
+        selectedTransaction = transaction
+    }
+
+    fun unselectTransaction() {
+        selectedTransaction = null
+    }
+
+    fun getSelectedTransaction() = selectedTransaction
+
 }

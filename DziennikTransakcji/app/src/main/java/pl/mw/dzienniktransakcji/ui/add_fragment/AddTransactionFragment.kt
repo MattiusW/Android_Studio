@@ -73,7 +73,7 @@ class AddTransactionFragment : Fragment() {
             binding.yearTv.text = year.toString()
 
             val date = Calendar.getInstance()
-            date.set(day, month, year)
+            date.set(year, month, day)
             viewModel.date = date.timeInMillis
         }
 

@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import pl.mw.dzienniktransakcji.MainActivity
 import pl.mw.dzienniktransakcji.MainViewModel
 import pl.mw.dzienniktransakcji.R
 import pl.mw.dzienniktransakcji.databinding.FragmentTransactionsBinding
@@ -36,7 +38,9 @@ class TransactionsFragment : Fragment() {
             binding.recylerView.adapter = TransactionsAdapter(
                 transactions
             ) { transaction, position ->
-                Log.d("TEST", "Trans: ${transaction.toString()}")
+                mainVm.selectTransaction(transaction)
+                (requireActivity() as MainActivity).setBottomNavVisibility(false)
+                findNavController().navigate(R.id.editTransactionFragment)
             }
 
         }
