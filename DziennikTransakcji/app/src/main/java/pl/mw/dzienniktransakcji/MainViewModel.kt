@@ -12,6 +12,7 @@ import pl.mw.dzienniktransakcji.data.TransactionsRepository
 import pl.mw.dzienniktransakcji.data.room.Transaction
 
 class MainViewModel(app: Application): AndroidViewModel(app) {
+    var isBottomNavVisible = true
     private val repo = TransactionsRepository(app.applicationContext)
 
     fun insertTransaction(transaction: Transaction) =

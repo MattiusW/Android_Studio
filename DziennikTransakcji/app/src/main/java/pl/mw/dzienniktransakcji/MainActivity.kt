@@ -1,6 +1,7 @@
 package pl.mw.dzienniktransakcji
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -24,12 +25,32 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setBottomNavVisibility(mainVm.isBottomNavVisible)
+
         val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainerView.id) as NavHostFragment
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNavigationView, navController)
 
-        mainVm.insertTransaction(createTransaction())
+        binding.addTransactionFb.setOnClickListener {
+            setBottomNavVisibility(false)
+            navController.navigate(R.id.addTransactionFragment)
+        }
+
+//        mainVm.insertTransaction(createTransaction())
     }
+    fun setBottomNavVisibility(bool: Boolean) {
+        mainVm.isBottomNavVisible = bool
+
+        val isVisible = when(bool) {
+            true -> View.VISIBLE
+            false -> View.INVISIBLE
+        }
+
+        binding.cardView.visibility = isVisible
+        binding.addTransactionFb.visibility = isVisible
+
+    }
+
 
     private fun createTransaction() = Transaction(0,1L, 10f, "Opis", TransactionType.INCOME, TransactionCategory.HOUSEHOLD)
 }

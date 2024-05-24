@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
+import pl.mw.dzienniktransakcji.MainActivity
 import pl.mw.dzienniktransakcji.MainViewModel
 import pl.mw.dzienniktransakcji.R
 import pl.mw.dzienniktransakcji.data.room.Transaction
@@ -23,6 +25,14 @@ class AddTransactionFragment : Fragment() {
     private val mainVm by activityViewModels<MainViewModel>()
     private var _binding: FragmentAddTransactionBinding? = null
     private  val binding get() = _binding!!
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            (requireActivity() as MainActivity).setBottomNavVisibility(true)
+            isEnabled = false
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +44,7 @@ class AddTransactionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        handleOnBackPressed()
         val adapter = ArrayAdapter(requireContext(),
             androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
             TransactionCategory.values().map { enum -> enum.name })
@@ -50,6 +60,10 @@ class AddTransactionFragment : Fragment() {
             mainVm.insertTransaction(trans)
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    private fun handleOnBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 
     private fun showDatePickerDialog() {
