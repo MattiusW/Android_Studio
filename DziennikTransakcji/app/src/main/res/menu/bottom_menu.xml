@@ -3,15 +3,15 @@
 
     <item
         android:icon="@drawable/cart_tick"
-        android:title="Transactions"
+        android:title=""
         android:id="@id/transactionsFragment"/>
     <item
         android:icon="@drawable/wallet_add"
-        android:title="Income"
+        android:title=""
         android:id="@id/incomeFragment"/>
     <item
         android:icon="@drawable/wallet__remove"
-        android:title="Outcome"
+        android:title=""
         android:id="@id/outcomeFragment"/>
 
 </menu>

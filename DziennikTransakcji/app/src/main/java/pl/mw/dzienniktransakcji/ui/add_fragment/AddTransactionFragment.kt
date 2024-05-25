@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.activityViewModels
 import pl.mw.dzienniktransakcji.MainActivity
@@ -57,7 +58,7 @@ class AddTransactionFragment : Fragment() {
 
         binding.saveBtn.setOnClickListener {
             val trans = createTransaction()
-            mainVm.insertTransaction(trans)
+            mainVm.insertTransaction(trans!!)
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
@@ -85,7 +86,7 @@ class AddTransactionFragment : Fragment() {
         newDatePicker.show(parentFragmentManager, "DatePicker")
     }
 
-    private fun createTransaction(): Transaction {
+    private fun createTransaction(): Transaction? {
         val type = when(binding.typeRg.checkedRadioButtonId) {
             binding.incomeRb.id -> TransactionType.INCOME
             else -> TransactionType.OUTCOME

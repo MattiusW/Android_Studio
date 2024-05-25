@@ -58,8 +58,9 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatSpinner
-        android:background="@drawable/text_view_outline"
         android:id="@+id/categorySpinner"
+        android:background="@drawable/text_view_outline"
+        android:overlapAnchor="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -164,6 +165,7 @@
 
     <EditText
         android:id="@+id/descEt"
+        android:gravity="start"
         android:background="@drawable/text_view_outline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
