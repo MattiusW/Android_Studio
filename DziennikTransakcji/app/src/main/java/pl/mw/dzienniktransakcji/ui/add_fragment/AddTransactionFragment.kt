@@ -68,8 +68,13 @@ class AddTransactionFragment : Fragment() {
 
     private fun showDatePickerDialog() {
         val newDatePicker = TransactionDatePicker {day, month, year ->
-            binding.dayTv.text = day.toString()
-            binding.monthTv.text = month.toString()
+
+            val dayPlaceholder = if (day < 10) "0$day" else "$day"
+            binding.dayTv.text = dayPlaceholder
+
+            val monthPlaceholder = if (month + 1 < 10) "0${month + 1}" else "${month + 1}"
+            binding.monthTv.text = monthPlaceholder
+
             binding.yearTv.text = year.toString()
 
             val date = Calendar.getInstance()
