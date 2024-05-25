@@ -81,6 +81,7 @@
 
     <EditText
         android:id="@+id/amountEt"
+        android:inputType="numberDecimal"
         android:background="@drawable/text_view_outline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -151,6 +152,20 @@
             android:textSize="15sp" />
 
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/errorHintTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Nieprawidłowa wartość"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amountEt" />
 
     <TextView
         android:textColor="@color/black"
