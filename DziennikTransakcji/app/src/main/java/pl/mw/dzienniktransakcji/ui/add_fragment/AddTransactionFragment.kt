@@ -48,6 +48,7 @@ class AddTransactionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupCurrentDate()
         handleOnBackPressed()
         val adapter = ArrayAdapter(requireContext(),
             androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
@@ -93,6 +94,11 @@ class AddTransactionFragment : Fragment() {
             mainVm.insertTransaction(trans!!)
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+    }
+
+    private fun setupCurrentDate() {
+        val date = Calendar.getInstance()
+        viewModel.date = date.timeInMillis
     }
 
     private fun handleOnBackPressed() {

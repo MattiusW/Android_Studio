@@ -125,6 +125,7 @@ class EditTransactionFragment : Fragment() {
     }
 
     private fun setCurrentDate(date: Long) {
+        viewModel.date = date
         val sdf = SimpleDateFormat("dd-MM-yyyy")
         val dataPlaceHolder = sdf.format(date)
         val list = dataPlaceHolder.split("-")
