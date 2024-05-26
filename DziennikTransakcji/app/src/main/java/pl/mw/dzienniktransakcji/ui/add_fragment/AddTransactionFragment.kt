@@ -3,6 +3,7 @@ package pl.mw.dzienniktransakcji.ui.add_fragment
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -131,8 +132,13 @@ class AddTransactionFragment : Fragment() {
             else -> TransactionCategory.OTHERS
         }
 
-        val amount = binding.amountEt.text.toString()
+        var amount = binding.amountEt.text.toString()
         val desc = binding.descEt.text.toString()
+
+        //handle empty string exception
+        if(TextUtils.isEmpty(amount)){
+            amount = "0"
+        }
 
         return Transaction(0, viewModel.date, amount.toFloat(), desc, type, category)
     }
