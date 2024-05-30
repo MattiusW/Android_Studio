@@ -6,8 +6,16 @@
     tools:context=".ui.outcome_fragment.OutcomeFragment">
 
     <TextView
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="Outcome" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/outcomePieChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </FrameLayout>
