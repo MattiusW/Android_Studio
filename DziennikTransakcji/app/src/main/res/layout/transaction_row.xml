@@ -22,7 +22,7 @@
             android:layout_width="90dp"
             android:padding="10dp"
             android:layout_height="74dp"
-            android:background="@color/white"
+            android:background="@drawable/gold_bg"
             android:src="@drawable/wallet_add"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +59,7 @@
         android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="Date"
         android:textStyle="bold"
