@@ -61,6 +61,10 @@ class TransactionsAdapter(private val transations: List<Transaction>,
         holder.category.text = transations[position].category.name
         holder.type.text = transations[position].type.name
         holder.date.text = datePlaceholder
+        when(transations[position].type) {
+            TransactionType.INCOME -> holder.price.text = "+${transations[position].price}zł"
+            TransactionType.OUTCOME -> holder.price.text = "-${transations[position].price}zł"
+        }
         holder.icon.setImageResource(typeIconResource)
     }
 }
