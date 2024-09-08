@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513669832832",
+    "project_id": "citycall-1d957",
+    "storage_bucket": "citycall-1d957.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513669832832:android:a5aed073d1bf24da40c665",
+        "android_client_info": {
+          "package_name": "pl.mw.citycall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNo8ZAdXi329xjotKPEbyiqY-oIlxH8l4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
