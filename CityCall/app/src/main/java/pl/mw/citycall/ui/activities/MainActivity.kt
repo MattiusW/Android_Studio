@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import pl.mw.citycall.R
 import pl.mw.citycall.databinding.ActivityMainBinding
+import pl.mw.citycall.ui.fragments.registration_page.RegistrationFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,5 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val frag = RegistrationFragment()
+        supportFragmentManager.beginTransaction().add(frag, "").commit()
+
     }
 }
