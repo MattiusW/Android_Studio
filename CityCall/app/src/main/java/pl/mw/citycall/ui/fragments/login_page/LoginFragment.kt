@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import pl.mw.citycall.R
 import pl.mw.citycall.databinding.FragmentLoginBinding
+import pl.mw.citycall.ui.activities.MainViewModel
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private val vm by activityViewModels<LoginViewModel>()
+    private val mainVm by activityViewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

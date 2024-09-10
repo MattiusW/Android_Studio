@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import pl.mw.citycall.R
 import pl.mw.citycall.databinding.FragmentRegistrationBinding
+import pl.mw.citycall.ui.activities.MainViewModel
 import pl.mw.citycall.ui.fragments.login_page.LoginViewModel
 
 class RegistrationFragment : Fragment() {
@@ -15,6 +17,7 @@ class RegistrationFragment : Fragment() {
     private var _binding: FragmentRegistrationBinding? = null
     private val binding get() = _binding!!
     private val vm by viewModels<RegistrationViewModel>()
+    private val mainVm by activityViewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +29,7 @@ class RegistrationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vm.registerNewUserByEmail("stachu@wp.pl", "1234wasd", "Krzychu")
+        mainVm.registerNewUserByEmail("stachu@wp.pl", "1234wasd", "Krzychu")
     }
 
     override fun onDestroy() {
